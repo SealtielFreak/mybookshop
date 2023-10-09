@@ -1,0 +1,24 @@
+{% block header %}
+    <div>
+        <div class="pure-menu pure-menu-horizontal">
+
+            {% if linkitems %}
+                {% for link in linkitems %}
+                    <a href="#" class="pure-menu-heading pure-menu-link">{{ link }}</a>
+                {% endfor %}
+            {% else %}
+                {% block linkheader %}{% endblock %}
+            {% endif %}
+
+            <ul class="pure-menu-list">
+                {% if menuitems %}
+                    {% for item in menuitems %}
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">{{ item }}</a></li>
+                    {% endfor %}
+                {% else %}
+                    {% block headitems %}{% endblock %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

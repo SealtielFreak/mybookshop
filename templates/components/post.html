@@ -1,0 +1,21 @@
+{% block post %}
+    <div class="posts">
+        <h1 class="content-subhead">Recent books</h1>
+
+        {% for item in books %}
+            <section class="post">
+                <header class="post-header">
+                    <h2 class="post-title">{{ item.book.title }}</h2>
+                    <p class="post-meta">
+                        Year {{ item.book.date.year }},
+                        Publisher: {% for publisher in item.publishers %} <b>{{ publisher }}</b> {% endfor %}
+                    </p>
+                </header>
+
+                <div class="post-description">
+                    <p>{{ item.book.description }}</p>
+                </div>
+            </section>
+        {% endfor %}
+    </div>
+{% endblock %}
